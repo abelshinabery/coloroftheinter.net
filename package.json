@@ -5,9 +5,11 @@
   "main": "index.js",
   "files": "dist",
   "scripts": {
-    "dev": "webpack --mode development",
+    "dev": "rm -rf dist && webpack --mode development --config webpack.server.config.js && webpack --mode development",
     "prod": "webpack --mode production",
-    "start": "webpack-dev-server --mode development --open"
+    "serve": "node ./dist/server.js",
+    "ss": "node ./src/js/getScreenshot.js",
+    "start": "./node_modules/.bin/npm-run-all -s dev serve"
   },
   "author": "Abel Shinabery",
   "license": "ISC",
@@ -19,15 +21,22 @@
     "html-webpack-plugin": "^3.2.0",
     "mini-css-extract-plugin": "^0.9.0",
     "node-sass": "^4.13.0",
+    "npm-run-all": "^4.1.5",
     "sass-loader": "^8.0.2",
     "style-loader": "^1.1.2",
     "webpack": "^4.41.5",
     "webpack-cli": "^3.3.10",
-    "webpack-dev-server": "^3.10.1"
+    "webpack-dev-server": "^3.10.1",
+    "webpack-node-externals": "^1.7.2"
   },
   "dependencies": {
     "axios": "^0.19.1",
+    "body-parser": "^1.19.0",
     "core-js": "^3.6.4",
+    "express": "^4.17.1",
+    "node-vibrant": "^3.1.5",
+    "pug": "^2.0.4",
+    "puppeteer": "^2.0.0",
     "regenerator-runtime": "^0.13.3"
   }
 }

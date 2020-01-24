@@ -1,3 +1,4 @@
+const webpack = require('webpack');
 const path = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
@@ -8,6 +9,7 @@ module.exports = {
     path: path.resolve(__dirname, "dist"),
     filename: "js/bundle.js"
   },
+  target: "web",
   mode: "development",
   devServer: {
     contentBase: "./dist"
@@ -15,7 +17,8 @@ module.exports = {
   plugins: [
     new HtmlWebpackPlugin({
       filename: "index.html",
-      template: "./src/index.html"
+      template: "./src/index.html",
+      excluseChunks: [ 'server' ]
     }),
     new MiniCssExtractPlugin({
       filename: "css/main.css"
@@ -25,7 +28,7 @@ module.exports = {
     rules: [
       {
         test: /\.js$/,
-        exclude: /node_modules/,
+        exclude: [/node_modules/, /getScreenshot.js/],
         use: {
           loader: "babel-loader"
         }
@@ -39,5 +42,5 @@ module.exports = {
         ],
       }
     ]
-  }
+  },
 };
