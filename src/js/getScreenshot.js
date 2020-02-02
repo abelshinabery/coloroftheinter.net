@@ -7,7 +7,7 @@ export async function screenshotURL(url){
   await page.setViewport({
     width: 1366,
     height: 768
-  })
+  });
   await page.goto(url, {
     waitUntil: 'networkidle2'
   });

@@ -6,6 +6,7 @@
   "files": "dist",
   "scripts": {
     "dev": "rm -rf dist && webpack --mode development --config webpack.server.config.js && webpack --mode development",
+    "dev-server":"rm -rf dist && webpack-dev-server --mode development",
     "prod": "webpack --mode production",
     "serve": "node ./dist/server.js",
     "ss": "node ./src/js/getScreenshot.js",

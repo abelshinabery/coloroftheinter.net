@@ -1,0 +1,91 @@
+html
+  // html will be 100% of its parent, the screen
+  height: 100vh
+
+body
+  // body will need to dynamically change based on content
+  min-height: 100vh
+  background-color: $main-color
+
+// Divider styles
+
+.main-section
+  height: 100vh
+  width: 40%
+  float: left
+
+#page-left-half
+  @include shadow
+  background-color: $secondary-color
+  position: relative
+
+#https
+  text-align: right
+  color: white
+  font-size: 7.5em
+  font-family: $font-body
+  margin-top: 2.8em
+  font-style: italic
+
+#url-search
+  margin-top: $url-search-margin-top
+  width: 60vw
+
+
+#url-search-bar
+  font-family: $font-body
+  padding-left: 0.3em
+  background-color: #eee
+  border: 1.2px solid black
+  border-radius: 0px 0px 0px 0px
+  width: 100%
+  height: 3em
+  font-size: 0.33em
+
+.title
+  margin-top: .5em
+  font-family: $font-heading
+  font-size: 8em
+  font-weight: 400
+
+#search-circle
+  @include shadow
+  position: absolute
+  right: $circle-offset
+  width: $circle-dimensions
+  height: $circle-dimensions
+  background-color: white
+  border-radius: 50%
+  margin-top: $circle-margin-top
+  display: grid
+  justify-content: center
+  align-items: center
+
+#search-icon
+  width: $circle-dimensions - 15
+
+#title-first-half
+  color: white
+  text-align: right
+
+#title-second-half
+  color: black
+  text-align: left
+
+// Screenshot styles
+
+#screenshot
+  width: 500px
+  height: 500px
+
+// Swatch styles
+
+#swatch-container
+  display: flex
+  flex-wrap: nowrap
+  height: 25px
+  width: 50%
+
+.swatch
+  flex: 1 1 0px
+  background: black

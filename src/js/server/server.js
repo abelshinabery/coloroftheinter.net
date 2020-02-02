@@ -14,17 +14,19 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(express.static(DIST_DIR));
 app.get('/', (req, res) => res.sendFile(INDEX_HTML));
 
-app.post('/', async (req, res) => {
+app.post('/getPalette', async (req, res) => {
   const url = req.body.url;
+  console.log(req.body.url);
   const imgBuffer = await screenshotURL(url);
   console.log('done!');
   // res.sendFile(`${DIST_DIR}/${url.substr(url.indexOf(':')+3, url.length)}.png`);
   // const palette = await getImageColorPalette(`${DIST_DIR}/ss.jpeg`);
   const palette = await getImageColorPalette(imgBuffer);
   console.log(JSON.stringify(palette));
-  app.set('views', `${SRC_DIR}/js/server`);
-  app.set('view engine', 'pug');
-  res.render('colors', {title: 'Color Palette'});
+  res.send(JSON.stringify(palette));
+  //app.set('views', `${SRC_DIR}/js/server`);
+  //app.set('view engine', 'pug');
+  //res.render('colors', {title: 'Color Palette'});
 });
 
 const PORT = 3000;
