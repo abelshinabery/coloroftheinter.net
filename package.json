@@ -36,7 +36,7 @@
     "core-js": "^3.6.4",
     "express": "^4.17.1",
     "node-vibrant": "^3.1.5",
-    "pug": "^2.0.4",
+    "pug": "^3.0.1",
     "puppeteer": "^2.0.0",
     "regenerator-runtime": "^0.13.3"
   }
